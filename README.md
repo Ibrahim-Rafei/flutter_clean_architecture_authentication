@@ -18,8 +18,8 @@ This is a Flutter authentication app showcasing Clean Architecture, BLoC pattern
 ## Screenshots
 
 <p float="left">
-  <img src="https://raw.githubusercontent.com/Ibrahim-Rafei/flutter_clean_architecture_authentication/main/assets/flutter_authentication_screenshot.jpg" width="100" height="100"/> 
-  <img src="https://raw.githubusercontent.com/Ibrahim-Rafei/flutter_clean_architecture_authentication/main/assets/flutter_authentication_screenshot2.jpg" width="100" />
+  <img src="https://raw.githubusercontent.com/Ibrahim-Rafei/flutter_clean_architecture_authentication/main/assets/flutter_authentication_screenshot.jpg" width="100" height="300"/> 
+  <img src="https://raw.githubusercontent.com/Ibrahim-Rafei/flutter_clean_architecture_authentication/main/assets/flutter_authentication_screenshot2.jpg" width="100"height="300" />
 </p>
 
 ## Getting Started
