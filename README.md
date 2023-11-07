@@ -96,6 +96,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Acknowledgments
 
-- [Reso Coder](https://resocoder.com/) for the excellent tutorials on Flutter architecture.
+- [Reso Coder's Flutter Clean Architecture series](https://resocoder.com/flutter-clean-architecture-tdd) for the excellent tutorials on Flutter architecture.
 
 - [BloC Library](https://bloclibrary.dev/) for providing a solid foundation for BLoC pattern implementation.
