@@ -17,7 +17,7 @@ This is a Flutter authentication app showcasing Clean Architecture, BLoC pattern
 
 ## Screenshots
 
-![Screenshot 1](https://github.com/Ibrahim-Rafei/flutter_clean_architecture_authentication/tree/main/assets/flutter_authentication_screenshot.jpg) | ![Screenshot 2](https://github.com/Ibrahim-Rafei/flutter_clean_architecture_authentication/tree/main/assets/flutter_authentication_screenshot2.jpg)
+![Screenshot](https://github.com/Ibrahim-Rafei/flutter_clean_architecture_authentication/tree/main/assets/flutter_authentication_screenshot.jpg) | ![Screenshot](https://github.com/Ibrahim-Rafei/flutter_clean_architecture_authentication/tree/main/assets/flutter_authentication_screenshot2.jpg)
 
 ## Getting Started
 
