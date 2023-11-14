@@ -13,6 +13,7 @@ This is a Flutter authentication app showcasing Clean Architecture, BLoC pattern
 
 - **BLoC Pattern**: Utilizes the BLoC pattern for state management to keep UI and business logic separated.
 
+- **Dependency Injection**: Implements dependency injection for better code decoupling and testability using `get_it`.
   
 ## Screenshots
 
@@ -74,8 +75,6 @@ This project follows the Clean Architecture principles for better separation of 
 - **Domain Layer**: Contains the business logic and entities. It is independent of any external frameworks.
 
 - **Data Layer**: Manages data sources, repositories, and data models. It interacts with external services like Firebase.
-
-- **Injection Layer**: Handles dependency injection using the `get_it` package.
 
 ## Testing
 
