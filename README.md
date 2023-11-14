@@ -13,8 +13,7 @@ This is a Flutter authentication app showcasing Clean Architecture, BLoC pattern
 
 - **BLoC Pattern**: Utilizes the BLoC pattern for state management to keep UI and business logic separated.
 
-- **Dependency Injection**: Implements dependency injection for better code decoupling and testability using `get_it`.
-
+  
 ## Screenshots
 
 <p float="left">
