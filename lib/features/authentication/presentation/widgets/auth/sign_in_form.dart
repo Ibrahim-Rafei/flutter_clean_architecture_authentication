@@ -127,7 +127,7 @@ class _LoginFormState extends State<LoginForm> {
                       onPressed: (){
                         BlocProvider.of<AuthBloc>(context).add(SignInEvent(signInEntity: SignInEntity(password: _passwordController.text , email: _usernameController.text)));
                       },
-                      style: ButtonStyle(
+                      style:  ButtonStyle(
                         shape: MaterialStateProperty.all<RoundedRectangleBorder>(RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10.0),
                         )),
