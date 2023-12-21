@@ -1,6 +1,3 @@
-import 'package:dartz/dartz.dart';
-
-import '../../../../core/error/failures.dart';
 import '../entities/first_page_entity.dart';
 import '../repositories/authentication_repository.dart';
 

@@ -8,13 +8,13 @@ abstract class AuthEvent extends Equatable {
 
 class CheckLoggingInEvent extends AuthEvent{}
 
-
 class CheckEmailVerificationEvent extends AuthEvent{}
+
 class SendEmailVerificationEvent extends AuthEvent{}
+
+class SignInWithGoogleEvent extends AuthEvent{}
+
 class LogOutEvent extends AuthEvent{}
-
-
-
 
 class SignInEvent extends AuthEvent {
  final  SignInEntity signInEntity ;
@@ -22,6 +22,7 @@ class SignInEvent extends AuthEvent {
  @override
  List<Object> get props => [signInEntity];
 }
+
 class SignUpEvent extends AuthEvent {
   final SignUpEntity signUpEntity ;
   SignUpEvent({required this.signUpEntity});

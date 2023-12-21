@@ -136,6 +136,8 @@ class _SignUpFormState extends State<SignUpForm> {
                 if(state is SignedUpState){
                   Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> const VerifyEmail()));
                   BlocProvider.of<AuthBloc>(context).add(SendEmailVerificationEvent());
+                }else if (state is GoogleSignInState){
+                  Navigator.of(context).pushReplacement(MaterialPageRoute(builder: (context)=> const HomePage()));
                 }
               },
               builder: (context, state) {
@@ -224,7 +226,7 @@ class _SignUpFormState extends State<SignUpForm> {
                     color: Colors.red,
                     imagePath: "assets/google_icon.png",
                     onPressed: (){
-
+                      BlocProvider.of<AuthBloc>(context).add(SignInWithGoogleEvent());
                     }
                 ),
                 optionsBox(

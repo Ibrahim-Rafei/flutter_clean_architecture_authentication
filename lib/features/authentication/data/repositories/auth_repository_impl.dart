@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:authentication/features/authentication/data/models/sign_in_model.dart';
 import 'package:authentication/features/authentication/data/models/sign_up_model.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import '../../../../core/error/exceptions.dart';
 import '../../../../core/error/failures.dart';
 import '../../../../core/network/network_info.dart';
@@ -111,6 +112,9 @@ class AuthenticationRepositoryImp implements AuthenticationRepository{
   Future<Either<Failure, Unit>> logOut() async {
     if (await networkInfo.isConnected) {
       try {
+
+        GoogleSignIn _googleSignIn = GoogleSignIn();
+        await _googleSignIn.signOut();
         await FirebaseAuth.instance.signOut();
         return const Right(unit);
       } catch (e) {
@@ -120,4 +124,19 @@ class AuthenticationRepositoryImp implements AuthenticationRepository{
       return Left(OfflineFailure());
     }
   }
+
+  @override
+  Future<Either<Failure, UserCredential>> googleSignIn() async {
+    if ( !await networkInfo.isConnected) {
+      return Left(OfflineFailure());
+    }else{
+      try{
+       final userCredential = await authRemoteDataSource.googleAuthentication();
+       return Right(userCredential) ;
+      }on ServerException {
+        return Left(ServerFailure());
+      }
+    }
+  }
+
 }

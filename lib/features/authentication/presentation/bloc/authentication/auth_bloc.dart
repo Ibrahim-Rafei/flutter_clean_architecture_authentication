@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:authentication/features/authentication/domain/usecases/google_auth_usecase.dart';
 import 'package:bloc/bloc.dart';
 import 'package:authentication/features/authentication/domain/entities/first_page_entity.dart';
 import 'package:authentication/features/authentication/domain/entities/sign_in_entity.dart';
@@ -26,6 +27,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
   final FirstPageUseCase  firstPage;
   final CheckVerificationUseCase checkVerificationUseCase;
   final LogOutUseCase logOutUseCase;
+  final GoogleAuthUseCase googleAuthUseCase;
+
   Completer<void> completer = Completer<void>();
 
 
@@ -35,7 +38,8 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
     required this.firstPage,
     required this.verifyEmailUseCase,
     required this.checkVerificationUseCase,
-    required this.logOutUseCase
+    required this.logOutUseCase,
+    required this.googleAuthUseCase
   }) : super(AuthInitial()) {
     on<AuthEvent>((event, emit) async{
       if (event is CheckLoggingInEvent) {
@@ -66,6 +70,10 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
       }else if (event is LogOutEvent){
         final failureOrLogOut = await logOutUseCase();
         emit(eitherToState(failureOrLogOut ,LoggedOutState()));
+      }else if (event is SignInWithGoogleEvent){
+        emit(LoadingState());
+        final failureOrUserCredential = await googleAuthUseCase();
+        emit(eitherToState(failureOrUserCredential ,GoogleSignInState()));
       }
     });
   }

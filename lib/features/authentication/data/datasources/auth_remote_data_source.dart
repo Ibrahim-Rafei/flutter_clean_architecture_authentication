@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
 import '../../../../core/error/exceptions.dart';
 import '../models/sign_in_model.dart';
 import '../models/sign_up_model.dart';
@@ -7,6 +8,8 @@ import '../models/sign_up_model.dart';
 abstract class AuthRemoteDataSource {
   Future<UserCredential> signUp(SignUpModel signUp);
   Future<UserCredential> signIn(SignInModel signIn);
+  Future<UserCredential> googleAuthentication();
+
   Future<Unit> verifyEmail();
 }
 
@@ -73,6 +76,27 @@ class AuthRemoteDataSourceImpl implements AuthRemoteDataSource {
       throw NoUserException();
     }
     return Future.value(unit);
+  }
+
+  @override
+  Future<UserCredential> googleAuthentication() async {
+    FirebaseAuth firebaseInstance = FirebaseAuth.instance;
+    await  firebaseInstance.currentUser?.reload();
+    // Trigger the authentication flow
+    final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
+    // Obtain the auth details from the request
+    final GoogleSignInAuthentication? googleAuth = await googleUser?.authentication;
+
+    // Create a new credential
+    final credential = GoogleAuthProvider.credential(
+      accessToken: googleAuth?.accessToken,
+      idToken: googleAuth?.idToken,
+    );
+    try{
+      return await firebaseInstance.signInWithCredential(credential);
+    }catch(e){
+      throw ServerException();
+    }
   }
 
 }
