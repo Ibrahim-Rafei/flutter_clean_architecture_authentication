@@ -1,7 +1,7 @@
 # Flutter Authentication App
 
-![Flutter](https://img.shields.io/badge/Flutter-3.13.9-blue.svg)
-![Firebase](https://img.shields.io/badge/dart-3.1.5-orange.svg)
+![Flutter](https://img.shields.io/badge/Flutter-3.16.5-blue.svg)
+![Firebase](https://img.shields.io/badge/dart-3.2.3-orange.svg)
 
 This is a Flutter authentication app showcasing Clean Architecture, BLoC pattern, and dependency injection. It uses Firebase for authentication and provides a solid foundation for building scalable, maintainable Flutter applications.
 
