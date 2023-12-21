@@ -66,6 +66,38 @@ Before running the app, you need to set up Firebase and add the configuration fi
 
 5. That's it! Your Flutter app is now connected to Firebase for authentication.
 
+## Firebase Configuration for Flutter App
+
+Before running the app, follow these steps to set up Firebase and configure your Flutter app for authentication:
+
+1. **Create a Firebase Project:**
+   - Go to the [Firebase Console](https://console.firebase.google.com/) and create a new project.
+
+2. **Enable Email/Password Sign-In:**
+   - In your Firebase project, navigate to the Authentication section and enable the Email/Password sign-in method.
+
+3. **Set Up Authentication Methods:**
+   - Follow the Firebase documentation to set up the required authentication methods, including Google Sign-In.
+
+4. **Add Firebase Configuration Files:**
+   - For Android:
+      - Download the `google-services.json` file.
+      - Place the file in `android/app/google-services.json`.
+      - Obtain the SHA-1 fingerprint for your Android app by running the following command in the terminal from your Android project directory:
+        ```bash
+        keytool -list -v -keystore ~/.android/debug.keystore -alias androiddebugkey -storepass android -keypass android
+        ```
+        - Replace `~/.android/debug.keystore` with the path to your keystore, and use the correct alias and passwords.
+        - Add the obtained SHA-1 fingerprint to the Firebase Console in the "SHA certificate fingerprints" section.
+
+   - For iOS:
+      - Download the `GoogleService-Info.plist` file.
+      - Place the file in `ios/Runner/GoogleService-Info.plist`.
+
+5. **Run Your Flutter App:**
+   - Your Flutter app is now connected to Firebase for authentication.
+
+
 ## Architecture
 
 This project follows the Clean Architecture principles for better separation of concerns and scalability:
